@@ -1,33 +1,25 @@
+
 banana = ""
-banana = prompt("Enter DOB (YYYY-MM-DD) 2")
+banana = prompt("Enter DOB (YYYY-MM-DD)")
 if (banana == ""){
     banana = "2007-12-23"
 }
+function updateSecondsAlive() {
+    // Replace 'YYYY-MM-DD' with your actual birthdate in the format 'YYYY-MM-DD'
+    const birthDate = new Date(banana);
+    birthDate.setFullYear(birthDate.getFullYear() + 80);
+    const currentDate = new Date();
 
+    // Calculate the difference in milliseconds
+    const timeDifference = birthDate - currentDate;
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Get the element to display the difference in seconds
-    const secondsElement = document.getElementById("seconds-difference");
+    // Convert milliseconds to seconds
+    const secondsAlive = (timeDifference / 1000);
 
-    // Function to calculate the difference in seconds between two dates
-    function calculateSecondsDifference(startDate, endDate) {
-        const startTime = startDate.getTime();
-        const endTime = endDate.getTime();
+    // Update the text in the div with the calculated seconds
+    const centeredText = document.getElementById('difference');
+    centeredText.textContent = secondsAlive.toFixed(3);
+}
 
-        const timeDiff = endTime - startTime;
-        const secondsDifference = timeDiff / 1000;
-
-        return secondsDifference;
-    }
-
-    // Example usage:
-    const startDate = new Date(); // Current date and time
-    const endDate = new Date();
-    endDate.setFullYear(initialDate.GetFullYear() + 80);
-
-    // Calculate the difference in seconds
-    const differenceInSeconds = calculateSecondsDifference(startDate, endDate);
-
-    // Display the difference in seconds with 7 decimal places
-    secondsElement.textContent = differenceInSeconds.toFixed(7);
-});
+// Update every quarter of a second (250 milliseconds)
+setInterval(updateSecondsAlive, 0);
