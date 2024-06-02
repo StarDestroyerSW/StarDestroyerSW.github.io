@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateCountdown() {
         // Calculate the number of days until May 10th
         const now = new Date();
-        const may10 = new Date(now.getFullYear(), 4, 10); // Months are zero-based (0-11)
+        const may10 = new Date(now.getFullYear(), 5, 18); // Months are zero-based (0-11)
         if (now.getMonth() > 4 || (now.getMonth() === 4 && now.getDate() > 10)) {
             may10.setFullYear(now.getFullYear() + 1);
         }
