@@ -4,21 +4,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to update the countdown
     function updateCountdown() {
-        // Calculate the number of days until May 10th
+        // Calculate the number of days until June 18th
         const now = new Date();
-        const may10 = new Date(now.getFullYear(), 5, 18); // Months are zero-based (0-11)
-        if (now.getMonth() > 4 || (now.getMonth() === 4 && now.getDate() > 10)) {
-            may10.setFullYear(now.getFullYear() + 1);
+        const june18 = new Date(now.getFullYear(), 5, 18); // Months are zero-based (0-11)
+
+        // Check if June 18th has already passed this year
+        if (now > june18) {
+            june18.setFullYear(now.getFullYear() + 1);
         }
-        const timeDiff = may10.getTime() - now.getTime();
-        const daysUntilMay10 = timeDiff / (1000 * 3600 * 24);
 
-        // Update the countdown in a hidden element
-        const hiddenCountdownElement = document.createElement("p");
-        hiddenCountdownElement.textContent = daysUntilMay10.toFixed(6);
+        // Calculate the difference in time
+        const timeDiff = june18.getTime() - now.getTime();
+        const daysUntilJune18 = timeDiff / (1000 * 3600 * 24);
 
-        // Swap the elements
-        countdownElement.textContent = hiddenCountdownElement.textContent;
+        // Update the countdown element
+        countdownElement.textContent = daysUntilJune18.toFixed(6);
 
         // Request the next frame
         requestAnimationFrame(updateCountdown);
