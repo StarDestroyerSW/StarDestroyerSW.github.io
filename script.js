@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateCountdown() {
         // Calculate the number of days until June 18th
         const now = new Date();
-        const june18 = new Date(now.getFullYear(), 5, 18); // Months are zero-based (0-11)
+        const june18 = new Date(now.getFullYear(), 6, 1); // Months are zero-based (0-11)
 
         // Check if June 18th has already passed this year
         if (now > june18) {
